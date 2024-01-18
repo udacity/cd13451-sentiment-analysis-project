@@ -8,11 +8,13 @@ Project description goes here.
 
 ## Getting Started
 
-Instructions for how to get a copy of the project running on your local machine.
+To get a copy of the project running:
 
 1. Proceed to open up the AWS console from the AWS Gateway.
 2. Click through the AWS console to Amazon Sagemaker.
-3. Click through the main Sagemaker page to Notebook/Notebook instances from the left hand toolbar.
+3. Click through the main Sagemaker page to "Notebook" > "Notebook instances" from the left hand toolbar, and create a notebook instance.
+
+Then, go through the following steps:
 
 **1. Open a Terminal in the Notebook:**
   - In the Jupyter Notebook interface, go to the "New" menu.
@@ -21,45 +23,21 @@ Instructions for how to get a copy of the project running on your local machine.
 **2. Go to SageMaker directory:**
   - `cd SageMaker`
 
+**3. Clone the Repository:**
+  - `git clone https://github.com/udacity/cd13451-sentiment-analysis-project.git`
+
+**4. Accessing the Repository in the Notebook:**
+  - After cloning, you can go back to the Jupyter interface and navigate to the cloned repository directory. You will find it in the file explorer. You then open `cd13451-sentiment-analysis-project` repository directory and navigate to the `starter` directory. Then, open `Confidence_Learning.ipynb` notebook.
+    
 ### Dependencies
-
+The dependencies are listed in a `requirements.txt` in 
 ```
-Examples here
-```
-
-### Installation
-
-Step by step explanation of how to get a dev environment running.
-
-List out the steps
-
-```
-Give an example here
-```
-
-## Testing
-
-Explain the steps needed to run any automated tests
-
-### Break Down Tests
-
-Explain what each test does and why
-
-```
-Examples here
+starter/requirements.txt
 ```
 
 ## Project Instructions
 
 This section should contain all the student deliverables for this project.
-
-## Built With
-
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
-
-Include all items used to build project.
 
 ## License
 
