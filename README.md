@@ -17,7 +17,7 @@ Instructions for how to get a copy of the project running on your local machine.
 **1. Open a Terminal in the Notebook:**
   - In the Jupyter Notebook interface, go to the "New" menu.
   - Choose "Terminal" to open a new terminal window.
-\n    
+    
 **2. Go to SageMaker directory:**
   - `cd SageMaker`
 
