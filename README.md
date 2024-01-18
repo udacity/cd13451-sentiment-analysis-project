@@ -10,6 +10,16 @@ Project description goes here.
 
 Instructions for how to get a copy of the project running on your local machine.
 
+1. Proceed to open up the AWS console from the AWS Gateway.
+2. Click through the AWS console to Amazon Sagemaker.
+3. Click through the main Sagemaker page to Notebook/Notebook instances from the left hand toolbar.
+
+**1. Open a Terminal in the Notebook:**
+  - In the Jupyter Notebook interface, go to the "New" menu.
+  - Choose "Terminal" to open a new terminal window.
+**2. Go to SageMaker directory:**
+  - `cd SageMaker`
+
 ### Dependencies
 
 ```
