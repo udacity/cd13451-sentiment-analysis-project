@@ -1,6 +1,6 @@
 # Sentiment Analysis with Noisy Labels using AWS SageMaker
 
-To see if confidence learning is effective, we will apply it to a real world sentiment analysis dataset. To set the scene, suppose you are building a deep learning system for sentiment analysis of product reviews (think back to week one) for a new online beauty product store. The hope is that your system can help the company decide what to keep in stock and what to remove. The company has been tracking comments on their website and has paid annotators to provide labels. They hand you a dataset of 80,000 customer reviews, each with a label of 0 for negative sentiment or 1 for positive sentiment.
+To evaluate the effectiveness of confidence learning, we plan to implement it on a practical sentiment analysis dataset. Consider a scenario where you are developing a deep learning system for analyzing sentiments in product reviews for a recently established online beauty product store. The objective is to assist the company in making decisions about inventory management—what products to retain and what to discontinue. The company has been actively monitoring comments on their website and has hired annotators to assign sentiment labels. They provide you with a dataset comprising 80,000 customer reviews, each labeled as 0 for negative sentiment or 1 for positive sentiment.
 
 ## Getting Started
 
