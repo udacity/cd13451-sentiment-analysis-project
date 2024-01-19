@@ -1,6 +1,6 @@
 # Sentiment Analysis with Noisy Labels using AWS SageMaker
 
-Project description goes here.
+To see if confidence learning is effective, we will apply it to a real world sentiment analysis dataset. To set the scene, suppose you are building a deep learning system for sentiment analysis of product reviews (think back to week one) for a new online beauty product store. The hope is that your system can help the company decide what to keep in stock and what to remove. The company has been tracking comments on their website and has paid annotators to provide labels. They hand you a dataset of 80,000 customer reviews, each with a label of 0 for negative sentiment or 1 for positive sentiment.
 
 ## Getting Started
 
@@ -32,8 +32,22 @@ starter/requirements.txt
 ```
 
 ## Project Instructions
+The datasets for this project are provided as CSV files in the `starter/data` directory and are intended for use by the sentiment classifier. Before utilizing these datasets, you need to create embeddings for the reviews. Our training model is a 3-layer MLP that is built on top of pre-computed BERT features. This model, implemented using [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/starter/introduction.html), can be found in `src/sentiment_classifier_system.py`. Rather than processing raw text, we use a pre-trained 'foundation model' to map each review text into a 768-dimensional vector embedding. The code for generating these embeddings is located in `create_embeddings.py` within the starter directory. Please follow the steps below to complete the project:
 
-This section should contain all the student deliverables for this project.
+1. Explore [Cleanlab](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#) a Python library for identifying potential label quality issues. Review the overview [here](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#), and see an example of Cleanlab interacting with PyTorch models in an image classification tutorial [here](https://docs.cleanlab.ai/v2.0.0/tutorials/image.html).
+2. Familiarize yourself with [LabelStudio](https://labelstud.io/), an open-source annotation tool.
+3. Access the AWS console and select S3 from the services.
+4. Within your S3 bucket (similar to `sagemaker-us-east-1-{ACCOUNT NUMBER}`), create a data folder. Confirm the bucket variable in the Confidence_Learning.ipynb notebook.
+5. Download `create_embeddings.py` and the CSV files into the data folder. Create embeddings for `train.csv`, `dev.csv`, and `test.csv` files locally. Utilize a GPU for this task; you can leverage free GPUs on platforms like Google Colab, such as the T4 GPU. Upload the script and data files to Colab, then execute the following commands:
+
+```
+!python create_embeddings.py --data_path './data/train.csv' --output_path './data/train.pt'
+!python create_embeddings.py --data_path './data/dev.csv' --output_path './data/dev.pt'
+!python create_embeddings.py --data_path './data/test.csv' --output_path './data/test.pt'
+```
+Using a T4 GPU, generating `train.pt`, `dev.pt`, and `test.pt` will take approximately 10 mins, 3 mins, and 3 mins, respectively. After generating the `.pt` files, manually upload them to your S3 bucket at `s3://sagemaker-us-east-1-{ACCOUNT NUMBER}/data/`.
+
+6. Fill out the TODO parts in the `Confidence_Learning.ipynb` and `main.py`.
 
 ## License
 
