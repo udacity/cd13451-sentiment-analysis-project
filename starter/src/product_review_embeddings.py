@@ -20,15 +20,15 @@ class ProductReviewEmbeddings(Dataset):
     if split == 'train':
         train_data_dir = os.environ['SM_CHANNEL_TRAIN']
         self.data = pd.read_csv(os.path.join(train_data_dir, 'train.csv'))
-        self.embedding = torch.load(os.path.join(train_data_dir, f'{split}_new.pt'))
+        self.embedding = torch.load(os.path.join(train_data_dir, f'{split}.pt'))
     elif split == 'dev':
         dev_data_dir = os.environ['SM_CHANNEL_TRAIN']
         self.data = pd.read_csv(os.path.join(dev_data_dir, 'dev.csv'))
-        self.embedding = torch.load(os.path.join(dev_data_dir, f'{split}_new.pt'))
+        self.embedding = torch.load(os.path.join(dev_data_dir, f'{split}.pt'))
     else:
         test_data_dir = os.environ['SM_CHANNEL_TRAIN']
         self.data = pd.read_csv(os.path.join(test_data_dir, 'test.csv'))
-        self.embedding = torch.load(os.path.join(test_data_dir, f'{split}_new.pt'))
+        self.embedding = torch.load(os.path.join(test_data_dir, f'{split}.pt'))
     
     self.split = split
 
