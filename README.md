@@ -1,6 +1,12 @@
 # Sentiment Analysis with Noisy Labels using AWS SageMaker
 
-To evaluate the effectiveness of confidence learning, we plan to implement it on a practical sentiment analysis dataset. Consider a scenario where you are developing a deep learning system for analyzing sentiments in product reviews for a recently established online beauty product store. The objective is to assist the company in making decisions about inventory management—what products to retain and what to discontinue. The company has been actively monitoring comments on their website and has hired annotators to assign sentiment labels. They provide you with a dataset comprising 80,000 customer reviews, each labeled as 0 for negative sentiment or 1 for positive sentiment.
+Continuous annotation is the process of regularly updating training data with fresh examples from a currently deployed model checkpoint. These examples are then used to train the next version of the model. A significant challenge in this process is the efficient selection and annotation of new examples, especially when dealing with large, complex datasets where human labeling is prone to noise and errors.
+
+One of the main challenges of annotation is its repetitive nature, which can lead to fatigue, coupled with the inherent ambiguity in the task itself. In our project, we aim to explore and utilize methods and libraries from cutting-edge research to tackle these challenges. Our focus is particularly on analyzing a deployed model's output to refine and enhance the training dataset.
+
+Given that annotation errors are a common occurrence, our approach involves employing Confidence Learning. This technique uses a trained model's predictions to identify and highlight questionable labels. The premise is that instances where the model shows unexpected responses may point to potential labeling inaccuracies.
+
+To test the effectiveness of Confidence Learning, we plan to apply it to a real-world scenario involving sentiment analysis. Imagine developing a deep learning system to analyze product review sentiments for a new online beauty product store. The system's aim is to help the company decide which products to keep and which to phase out. The company actively monitors customer feedback on its website and has engaged annotators to label these sentiments. You are provided with a dataset of 80,000 customer reviews, each tagged with a 0 for negative sentiment or a 1 for positive sentiment. This project will serve as a practical application to assess how Confidence Learning can improve the accuracy and reliability of sentiment analysis in a dynamic, real-world environment.
 
 ## Getting Started
 
