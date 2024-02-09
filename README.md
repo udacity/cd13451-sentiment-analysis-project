@@ -40,20 +40,19 @@ starter/requirements.txt
 ## Project Instructions
 The datasets for this project are provided as CSV files in the `starter/data` directory and are intended for use by the sentiment classifier. Before utilizing these datasets, you need to create embeddings for the reviews. Our training model is a 3-layer MLP that is built on top of pre-computed BERT features. This model, implemented using [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/starter/introduction.html), can be found in `src/sentiment_classifier_system.py`. Rather than processing raw text, we use a pre-trained 'foundation model' to map each review text into a 768-dimensional vector embedding. The code for generating these embeddings is located in `create_embeddings.py` within the starter directory. Please follow the steps below to complete the project:
 
-1. Explore [Cleanlab](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#) a Python library for identifying potential label quality issues. Review the overview [here](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#), and see an example of Cleanlab interacting with PyTorch models in an image classification tutorial [here](https://docs.cleanlab.ai/v2.0.0/tutorials/image.html).
-2. Familiarize yourself with [LabelStudio](https://labelstud.io/), an open-source annotation tool.
-3. Access the AWS console and select S3 from the services.
-4. Within your S3 bucket (similar to `sagemaker-us-east-1-{ACCOUNT NUMBER}`), create a data folder. Confirm the bucket variable in the Confidence_Learning.ipynb notebook.
-5. Download `create_embeddings.py` and the CSV files into the data folder. Create embeddings for `train.csv`, `dev.csv`, and `test.csv` files locally. Utilize a GPU for this task; you can leverage free GPUs on platforms like Google Colab, such as the T4 GPU. Upload the script and data files to Colab, then execute the following commands:
-
-```
-!python create_embeddings.py --data_path './data/train.csv' --output_path './data/train.pt'
-!python create_embeddings.py --data_path './data/dev.csv' --output_path './data/dev.pt'
-!python create_embeddings.py --data_path './data/test.csv' --output_path './data/test.pt'
-```
-Using a T4 GPU, generating `train.pt`, `dev.pt`, and `test.pt` will take approximately 10 mins, 3 mins, and 3 mins, respectively. After generating the `.pt` files, manually upload them to your S3 bucket at `s3://sagemaker-us-east-1-{ACCOUNT NUMBER}/data/`.
-
-6. Fill out the TODO parts in the `Confidence_Learning.ipynb` and `main.py`.
+1. Start by reading a 2-page summary on the [confidence learning algorithm](https://docs.google.com/document/d/131GumbG99v_b-lO_G_cP9sZS01nxSVFhGICfu4S52ds/edit). [Cleanlab](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#) is a Python library for identifying potential label quality issues. Gain a comprehensive understanding about [Cleanlab](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#) by reviewing the [overview](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#), and see an example of Cleanlab interacting with PyTorch models in an image classification tutorial [here](https://docs.cleanlab.ai/v2.0.0/tutorials/image.html).
+2. Access the AWS console and select S3 from the services.
+3. Within your S3 bucket (similar to `sagemaker-us-east-1-{ACCOUNT NUMBER}`), create a data folder. Confirm the bucket variable in the Confidence_Learning.ipynb notebook.
+4. Download the `train.pt`, `dev.pt`, and `test.pt` files, as well as the `train.csv`, `dev.csv`, and `test.csv` files from your classroom workspace. Then, manually upload them to your S3 bucket at `s3://sagemaker-us-east-1-{ACCOUNT NUMBER}/data/`.
+5. Choose PyTorch Kernel for the Confidence_Learning.ipynb notebook and fill out the TODO parts in the Confidence_Learning.ipynb and main.py.
+    - Key steps to accomplish in Confidence_Learning.ipynb:
+      1. Handle data input in Sagemaker.
+      2. Configure the PyTorch Estimator in Sagemaker.
+      3. Initiate a training job in Sagemaker.
+    - Key steps to accomplish in main.py:
+      1. Implement cross-validation.
+      2. Implement confidence learning by a simple function call from CleanLab and correct the erroneous labels.
+      3. Retrain and re-evaluate the sentiment classifier. 
 
 ## License
 
